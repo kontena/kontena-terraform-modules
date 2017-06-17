@@ -1,0 +1,11 @@
+[Match]
+Name=eth*
+[Network]
+DHCP=yes
+DNS=172.17.43.1
+DNS=169.254.169.253
+Domains=kontena.local
+[DHCP]
+UseDNS=false
+UseMTU=true
+UseDomains=true

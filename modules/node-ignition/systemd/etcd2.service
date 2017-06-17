@@ -1,0 +1,7 @@
+[Unit]
+Description=etcd 2.0
+After=docker.service
+[Service]
+Restart=always
+RestartSec=5
+ExecStart=/usr/bin/docker logs --tail=10 -f kontena-etcd

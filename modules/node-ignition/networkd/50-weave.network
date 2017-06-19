@@ -1,4 +1,6 @@
 [Match]
-Name=weave datapath
+Name=weave datapath vxlan-6784
+[Network]
+Description=Network interfaces managed by weave
 [Link]
 Unmanaged=yes

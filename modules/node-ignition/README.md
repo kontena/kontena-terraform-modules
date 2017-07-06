@@ -5,7 +5,7 @@
 
 ```
 module "kontena_node_ignition" {
-  source = "github.com/kontena/kontena-terraform-modules/tree/master/modules/node-ignition"
+  source = "github.com/kontena/kontena-terraform-modules/modules/node-ignition"
   master_uri = "${var.master_uri}"
   grid_token = "${var.grid_token}"
   docker_opts = "${var.docker_opts}"

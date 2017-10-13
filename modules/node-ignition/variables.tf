@@ -1,17 +1,36 @@
 variable "master_uri" {
-	description = "Kontena Master URI"
+  description = "Kontena Master URI"
 }
+
 variable "grid_token" {
-	description = "Kontena Grid token"
+  description = "Kontena Grid token"
 }
+
 variable "peer_interface" {
-	default = "eth1"
-	description = "Network interface that is used for intra-datacenter communication"
+  default     = "eth1"
+  description = "Network interface that is used for intra-datacenter communication"
 }
+
+variable "main_interface_prefix" {
+  default     = "eth1"
+  description = "The main network interface to configure"
+}
+
+variable "dns_server" {
+  default     = "169.254.169.253"
+  description = "Network DNS server"
+}
+
 variable "supernet" {
-	default = "10.81.0.0/16"
+  default = "10.81.0.0/16"
 }
+
 variable "docker_opts" {
-	description = "Docker Engine options"
-	default = ""
+  description = "Docker Engine options"
+  default     = ""
+}
+
+variable "overlay_version" {
+  description = "Docker overlay version"
+  default     = "overlay2"
 }

@@ -9,11 +9,21 @@ module "kontena_node_ignition" {
   master_uri = "${var.master_uri}"
   grid_token = "${var.grid_token}"
   docker_opts = "${var.docker_opts}"
+  dns_server = "${var.dns_server}"
+  main_interface_prefix = "${var.main_interface_prefix}"
 }
 
 resource "aws_instance" "kontena_node" {
   ...
   user_data = "${module.kontena_node_ignition.rendered}"
+  ...
+}
+
+resource "google_compute_instance" "kontena_node" {
+  ...
+  metadata {
+    user-data = "${module.kontena_node_ignition.rendered}"
+  }
   ...
 }
 ```

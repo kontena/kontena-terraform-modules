@@ -1,9 +1,9 @@
 [Match]
-Name=eth*
+Name=${main_interface_prefix}*
 [Network]
 DHCP=yes
 DNS=172.17.43.1
-DNS=169.254.169.253
+DNS=${dns_server}
 Domains=kontena.local
 [DHCP]
 UseDNS=false

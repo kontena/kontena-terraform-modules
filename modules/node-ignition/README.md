@@ -10,6 +10,7 @@ module "kontena_node_ignition" {
   grid_token = "${var.grid_token}"
   docker_opts = "${var.docker_opts}"
   dns_server = "${var.dns_server}"
+  peer_interface = "${var.peer_interface}"
   main_interface_prefix = "${var.main_interface_prefix}"
 }
 

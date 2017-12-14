@@ -34,3 +34,8 @@ variable "overlay_version" {
   description = "Docker overlay version"
   default     = "overlay2"
 }
+
+variable "authorized_keys_core" {
+  description = "Authorized SSH keys for the user core"
+  default     = []
+}

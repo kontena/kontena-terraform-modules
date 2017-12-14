@@ -34,3 +34,13 @@ variable "overlay_version" {
   description = "Docker overlay version"
   default     = "overlay2"
 }
+
+variable "ignition_disks" {
+  description = "Ignition disk configs"
+  default     = []
+}
+
+variable "ignition_filesystems" {
+  description = "Ignition filesystems"
+  default     = []
+}

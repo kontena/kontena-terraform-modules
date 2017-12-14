@@ -28,3 +28,41 @@ resource "google_compute_instance" "kontena_node" {
   ...
 }
 ```
+
+## Disks and filesystems
+
+`ignition_disk` and `ignition_filesystem` like these:
+
+```
+data "ignition_disk" "sda" {
+  device     = "/dev/sda"
+  wipe_table = true
+
+  partition {
+    label = "ROOT"
+  }
+}
+
+data "ignition_filesystem" "root" {
+  name = "ROOT"
+
+  mount {
+    device = "/dev/sda1"
+    format = "ext4"
+
+    wipe_filesystem = true
+    options         = ["-L", "ROOT"]
+  }
+}
+```
+
+Can be passed through with:
+
+```
+  ignition_disks = [
+    "${data.ignition_disk.sda.id}",
+  ]
+  ignition_filesystems = [
+    "${data.ignition_filesystem.root.id}",
+  ]
+```

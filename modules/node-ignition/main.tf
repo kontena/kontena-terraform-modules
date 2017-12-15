@@ -65,6 +65,11 @@ data "ignition_systemd_unit" "kontena_agent" {
   content = "${file("${path.module}/systemd/kontena-agent.service")}"
 }
 
+data "ignition_user" "core" {
+  name                = "core"
+  ssh_authorized_keys = "${var.authorized_keys_core}"
+}
+
 data "ignition_config" "default" {
   systemd = [
     "${data.ignition_systemd_unit.kontena_dropin.id}",
@@ -79,5 +84,9 @@ data "ignition_config" "default" {
 
   files = [
     "${data.ignition_file.kontena_agent.id}",
+  ]
+
+  users = [
+    "${data.ignition_user.core.id}",
   ]
 }

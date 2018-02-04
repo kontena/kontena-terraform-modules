@@ -28,3 +28,7 @@ resource "google_compute_instance" "kontena_node" {
   ...
 }
 ```
+
+## Testing
+
+    $ cd test && terraform init && terraform apply

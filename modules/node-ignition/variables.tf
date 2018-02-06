@@ -35,6 +35,16 @@ variable "overlay_version" {
   default     = "overlay2"
 }
 
+variable "ignition_disks" {
+  description = "Ignition disk configs"
+  default     = []
+}
+
+variable "ignition_filesystems" {
+  description = "Ignition filesystems"
+  default     = []
+}
+
 variable "authorized_keys_core" {
   description = "Authorized SSH keys for the user core"
   default     = []

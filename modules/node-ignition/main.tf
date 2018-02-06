@@ -86,6 +86,14 @@ data "ignition_config" "default" {
     "${data.ignition_file.kontena_agent.id}",
   ]
 
+  disks = [
+    "${var.ignition_disks}",
+  ]
+
+  filesystems = [
+    "${var.ignition_filesystems}",
+  ]
+
   users = [
     "${data.ignition_user.core.id}",
   ]

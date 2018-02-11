@@ -72,9 +72,13 @@ data "ignition_user" "core" {
 
 data "ignition_config" "default" {
   systemd = [
-    "${data.ignition_systemd_unit.kontena_dropin.id}",
-    "${data.ignition_systemd_unit.kontena_agent.id}",
-    "${data.ignition_systemd_unit.etcd2.id}",
+    "${concat(
+        list(
+          "${data.ignition_systemd_unit.kontena_dropin.id}",
+          "${data.ignition_systemd_unit.kontena_agent.id}",
+          "${data.ignition_systemd_unit.etcd2.id}"
+        ),
+        var.systemd_units)}",
   ]
 
   networkd = [

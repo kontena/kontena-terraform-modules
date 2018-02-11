@@ -29,9 +29,9 @@ resource "google_compute_instance" "kontena_node" {
 }
 ```
 
-## Disks and filesystems
+## Disks, filesystems and systemd units
 
-`ignition_disk` and `ignition_filesystem` like these:
+`ignition_disk`, `ignition_filesystem` and `systemd_units` like these:
 
 ```
 data "ignition_disk" "sda" {
@@ -54,6 +54,22 @@ data "ignition_filesystem" "root" {
     options         = ["-L", "ROOT"]
   }
 }
+
+data "ignition_systemd_unit" "var_lib_docker_mount" {
+  name = "var-lib-docker.mount"
+
+  content = <<EOF
+[Unit]
+Description=Mount /dev/disk/by-partlabel/docker to /var/lib/docker
+Before=local-fs.target
+[Mount]
+What=/dev/disk/by-partlabel/docker
+Where=/var/lib/docker
+Type=ext4
+[Install]
+WantedBy=local-fs.target
+EOF
+}
 ```
 
 Can be passed through with:
@@ -65,4 +81,11 @@ Can be passed through with:
   ignition_filesystems = [
     "${data.ignition_filesystem.root.id}",
   ]
+  systemd_units = [
+    "${data.ignition_systemd_unit.var_lib_docker_mount.id}",
+  ]
 ```
+
+## Testing
+
+    $ cd test && terraform init && terraform apply

@@ -50,6 +50,11 @@ variable "authorized_keys_core" {
   default     = []
 }
 
+variable "systemd_units" {
+  description = "Additional Ignition systemd units"
+  default     = []
+}
+
 variable "ignition_files" {
   description = "Additional Ignition files"
   default     = []

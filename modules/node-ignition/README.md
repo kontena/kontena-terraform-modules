@@ -66,3 +66,7 @@ Can be passed through with:
     "${data.ignition_filesystem.root.id}",
   ]
 ```
+
+## Testing
+
+    $ cd test && terraform init && terraform apply

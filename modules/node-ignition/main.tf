@@ -87,7 +87,11 @@ data "ignition_config" "default" {
   ]
 
   files = [
-    "${data.ignition_file.kontena_agent.id}",
+    "${concat(
+        list(
+          data.ignition_file.kontena_agent.id
+        ),
+        var.ignition_files)}",
   ]
 
   disks = [

@@ -49,3 +49,8 @@ variable "authorized_keys_core" {
   description = "Authorized SSH keys for the user core"
   default     = []
 }
+
+variable "ignition_files" {
+  description = "Additional Ignition files"
+  default     = []
+}

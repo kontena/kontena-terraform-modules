@@ -5,6 +5,7 @@ data "template_file" "kontena_agent_env" {
     kontena_uri            = "${var.master_uri}"
     kontena_token          = "${var.grid_token}"
     kontena_peer_interface = "${var.peer_interface}"
+    kontena_node_labels    = "${var.node_labels}"
   }
 }
 

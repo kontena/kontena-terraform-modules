@@ -18,6 +18,7 @@ ExecStart=/usr/bin/docker run --name kontena-agent \
     -e KONTENA_URI=${KONTENA_URI} \
     -e KONTENA_TOKEN=${KONTENA_TOKEN} \
     -e KONTENA_PEER_INTERFACE=${KONTENA_PEER_INTERFACE} \
+    -e KONTENA_NODE_LABELS=${KONTENA_NODE_LABELS} \
     -v=/var/run/docker.sock:/var/run/docker.sock \
     -v=/etc/kontena-agent.env:/etc/kontena.env \
     --net=host \

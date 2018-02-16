@@ -30,6 +30,11 @@ variable "docker_opts" {
   default     = ""
 }
 
+variable "node_labels" {
+  description = "Kontena node labels (as 'key=value' separated by spaces)"
+  default     = ""
+}
+
 variable "overlay_version" {
   description = "Docker overlay version"
   default     = "overlay2"
